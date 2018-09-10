@@ -40,9 +40,10 @@ public class WelcomeServlet extends HttpServlet {
 		String address = request.getParameter("address");
 		String phone = request.getParameter("phone");
 		String mileage = request.getParameter("mileage");
+		String install = request.getParameter("install");
 		
 		
-		Client newClient = new Client(username, wo, address, phone, mileage);
+		Client newClient = new Client(username, wo, address, phone, mileage, install);
 		ClientService.insertClient(newClient);
 		
 		request.setAttribute("clients",ClientService.getClients());

@@ -95,106 +95,104 @@
             </div>
 -->			
             <div class="mb-3">
-              <label for="mileage">Mileage Charges <span class="text-muted">(Optional)</span></label>
+              <label for="mileage">Mileage Charges <!-- <span class="text-muted">(Optional)</span> --></label>
               <input type="text" class="form-control" name="mileage" id="inputMileage" placeholder="Town">
+              <div class="invalid-feedback" style="width: 100%;">
+                  Mileage number is required.
+              </div>
             </div><br/>
          
-            <hr class="mb-4">
-<button class="btn btn-primary btn-lg btn-block" value="Submit" type="submit">Submit</button>
-
-
-
-
-<!--  
             <h4 class="mb-3">Copper Install</h4>
 
             <div class="d-block my-3">
               <div class="custom-control custom-radio">
-                <input id="ipwSdu" name="install" type="radio" class="custom-control-input" checked="" required="">
+                <input id="ipwSdu" name="install" type="radio" value = "IPWS" class="custom-control-input" checked="" required="">
                 <label class="custom-control-label" for="ipwSdu">IPM/IPW-(HDTV/HIS/HD)SDU</label>
               </div>
               <div class="custom-control custom-radio">
-                <input id="ipwMdu" name="install" type="radio" class="custom-control-input" required="">
+                <input id="ipwMdu" name="install" type="radio" value = "IPWM"class=" custom-control-input" required="">
                 <label class="custom-control-label" for="ipwMdu">IPM/IPW-(HDTV/HIS/HD)MDU</label>
               </div>
               <div class="custom-control custom-radio">
-                <input id="ipd" name="install" type="radio" class="custom-control-input" required="">
+                <input id="ipd" name="install" type="radio" value = "IPD"class=" custom-control-input" required="">
                 <label class="custom-control-label" for="ipd">IPD-(HDTV/HIS)SDU/MDU</label>
               </div>
 			  <div class="custom-control custom-radio">
-                <input id="ipt" name="install" type="radio" class="custom-control-input" required="">
+                <input id="ipt" name="install" type="radio" value = "IPT" class="custom-control-input" required="">
                 <label class="custom-control-label" for="ipt">IPT-(HDTV/Voice)SDU/MDU</label>
               </div>
 			  <div class="custom-control custom-radio">
-                <input id="ips" name="install" type="radio" class="custom-control-input" checked="" required="">
+                <input id="ips" name="install" type="radio" value = "IPS"class="custom-control-input" checked="" required="">
                 <label class="custom-control-label" for="ips">IPS-VDSL2</label>
               </div>
               <div class="custom-control custom-radio">
-                <input id="ipu" name="install" type="radio" class="custom-control-input" required="">
+                <input id="ipu" name="install" type="radio" value = "IPU" class="custom-control-input" required="">
                 <label class="custom-control-label" for="ipu">IPU</label>
               </div>
               <div class="custom-control custom-radio">
-                <input id="voice" name="install" type="radio" class="custom-control-input" required="">
+                <input id="voice" name="install" type="radio" value = "Voice" class="custom-control-input" required="">
                 <label class="custom-control-label" for="voice">Voice Only</label>
               </div>
 			  <div class="custom-control custom-radio">
-                <input id="mac" name="install" type="radio" class="custom-control-input" checked="" required="">
+                <input id="mac" name="install" type="radio" value = "MAC" class="custom-control-input" checked="" required="">
                 <label class="custom-control-label" for="mac">MAC</label>
               </div>
               <div class="custom-control custom-radio">
-                <input id="noAccess" name="install" type="radio" class="custom-control-input" required="">
+                <input id="noAccess" name="install" type="radio" value = "NoAccess" class="custom-control-input" required="">
                 <label class="custom-control-label" for="noAccess">No Access</label>
               </div>
               <div class="custom-control custom-radio">
-                <input id="dsl" name="install" type="radio" class="custom-control-input" required="">
+                <input id="dsl" name="install" type="radio" value = "DSL" class="custom-control-input" required="">
                 <label class="custom-control-label" for="dsl">DSL</label>
               </div>
-			  <div class="custom-control custom-radio">
-                <input id="dslVoice" name="install" type="radio" class="custom-control-input" checked="" required="">
+<!-- 			  <div class="custom-control custom-radio">
+                <input id="dslVoice" name="install" type="radio" value = "dslVoice" class="custom-control-input" checked="" required="">
                 <label class="custom-control-label" for="dslVoice">DSL/voice</label>
-              </div>			  
+              </div>	 -->		  
 			  
             <br/><h4 class="mb-3">Fiber Install</h4>
 			
               <div class="custom-control custom-radio">
-                <input id="ipwfSdu" name="install" type="radio" class="custom-control-input" checked="" required="">
+                <input id="ipwfSdu" name="install" type="radio" value = "IPWFS" class="custom-control-input" checked="" required="">
                 <label class="custom-control-label" for="ipwfSdu">IPWF-(HDTV/HIS/HD)SDU</label>
               </div>
               <div class="custom-control custom-radio">
-                <input id="ipwfMdu" name="install" type="radio" class="custom-control-input" required="">
+                <input id="ipwfMdu" name="install" type="radio" value = "IPWFM" class="custom-control-input" required="">
                 <label class="custom-control-label" for="ipwfMdu">IPWF-(HDTV/HIS/HD)MDU</label>
               </div>
               <div class="custom-control custom-radio">
-                <input id="iptf" name="install" type="radio" class="custom-control-input" required="">
+                <input id="iptf" name="install" type="radio" value = "IPTF" class="custom-control-input" required="">
                 <label class="custom-control-label" for="iptf">IPTF-(HDTV/Voice)SDU/MDU</label>
               </div>
 			  <div class="custom-control custom-radio">
-                <input id="ipsf" name="install" type="radio" class="custom-control-input" checked="" required="">
+                <input id="ipsf" name="install" type="radio" value = "IPSF" class="custom-control-input" checked="" required="">
                 <label class="custom-control-label" for="ipsf">IPSF</label>
               </div>
               <div class="custom-control custom-radio">
-                <input id="ipuf" name="install" type="radio" class="custom-control-input" required="">
+                <input id="ipuf" name="install" type="radio" value = "IPUF" class="custom-control-input" required="">
                 <label class="custom-control-label" for="ipuf">IPUF</label>
               </div>
               <div class="custom-control custom-radio">
-                <input id="voiceF" name="install" type="radio" class="custom-control-input" required="">
+                <input id="voiceF" name="install" type="radio" value = "VoiceF" class="custom-control-input" required="">
                 <label class="custom-control-label" for="voiceF">Voice Only</label>
               </div>
 			  <div class="custom-control custom-radio">
-                <input id="macF" name="install" type="radio" class="custom-control-input" checked="" required="">
+                <input id="macF" name="install" type="radio" value = "MACF" class="custom-control-input" checked="" required="">
                 <label class="custom-control-label" for="macF">MAC</label>
               </div>
               <div class="custom-control custom-radio">
-                <input id="noAccessF" name="install" type="radio" class="custom-control-input" required="">
+                <input id="noAccessF" name="install" type="radio" value = "NoAccess" class="custom-control-input" required="">
                 <label class="custom-control-label" for="noAccessF">No Access</label>
               </div>
-              <div class="custom-control custom-radio">
+<!--               <div class="custom-control custom-radio">
                 <input id="other" name="install" type="radio" class="custom-control-input" required="">
                 <label class="custom-control-label" for="other">Other:</label>
-              </div>
+              </div> -->
+
+            <hr class="mb-4">
+<button class="btn btn-primary btn-lg btn-block" value="Submit" type="submit">Submit</button>			  
 			  
-			  
-			  <br/><h4 class="mb-3">Business - Copper/Fibre Install</h4>
+	<!--		  <br/><h4 class="mb-3">Business - Copper/Fibre Install</h4>
 			  
               <div class="custom-control custom-radio">
                 <input id="bhe" name="install" type="radio" class="custom-control-input" required="">

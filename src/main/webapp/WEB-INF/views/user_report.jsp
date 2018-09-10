@@ -76,6 +76,35 @@
             </div>       
 
           <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1076" height="454" style="display: block; width: 1076px; height: 454px;"></canvas>
+				
+	<div class="container">
+    <div class="row">    
+    <form action="/search.do" method="post">
+        <div class="col-xs-8 col-xs-offset-2">
+		    <div class="input-group">
+                <div class="input-group-btn search-panel">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    	<span id="search_concept">Filter by</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#wo">Work Order</a></li>
+                      <li><a href="#phone">Phone</a></li>
+                      <li><a href="#address">Address</a></li>
+                      <li><a href="#all">Anything</a></li>
+                    </ul>
+                </div>
+                <input type="hidden" name="search_param" value="all" id="search_param">         
+                <input type="text" class="form-control" name="x" placeholder="Search term...">
+                <span class="input-group-btn">
+                <button type="submit" class="btn btn-primary">Search</button>
+                    <!-- <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button> -->
+                </span>
+            </div>
+        </div>
+        </form>
+	</div>
+</div>
+<br>				
 				<div class="row">
               		<c:forEach items="${clients}" var="client">
 				  	<form action="/delete_client.do" method="post">
@@ -87,6 +116,7 @@
 							    <h5 class="card-title">Phone: ${client.phone}</h5>
 							    <p class="card-text">Address: ${client.address}</p>
 							    <p class="card-text">Mileage: ${client.mileage}</p>
+							    <p class="card-text">Install name: ${client.install}</p>
 							    <input id="id" name="id" type="hidden" value="${client.ID}">
 								<button type="submit" class="btn btn-primary">Delete</button>
           						<a href="/edit_client.do?id=${client.ID}" class="btn btn-primary">Edit</a>
@@ -145,5 +175,17 @@
       });
     </script>
 
+    	<script language="JavaScript">
+    	
+    $(document).ready(function(e){
+    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+		e.preventDefault();
+		var param = $(this).attr("href").replace("#","");
+		var concept = $(this).text();
+		$('.search-panel span#search_concept').text(concept);
+		$('.input-group #search_param').val(param);
+	});
+});
+    </script>
 
 </body></html>

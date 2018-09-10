@@ -86,9 +86,14 @@
             </div>
 -->			
             <div class="mb-3">
-              <label for="mileage">Mileage Charges <span class="text-muted">(Optional)</span></label>
+              <label for="mileage">Mileage Charges <span class="text-muted"></span></label>
               <input type="text" class="form-control" name="mileage" id="inputMileage" value="${client.mileage}">
-            </div><br/>
+            </div>
+            <div class="mb-3">
+              <label for="install">Install name <span class="text-muted"></span></label>
+              <input type="text" class="form-control" name="install" id="inputinstall" value="${client.install}">
+            </div>
+            <br/>
          
             <hr class="mb-4">
 			<input id="id" name="id" type="hidden" value="${client.ID}">

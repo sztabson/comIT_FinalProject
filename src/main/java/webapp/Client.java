@@ -10,18 +10,20 @@ public class Client implements Serializable
 	private String address;
 	private String phone ;
 	private String mileage;
+	private String install;
 	
-	public Client (String username, String wo, String address, String phone, String mileage)
+	public Client (String username, String wo, String address, String phone, String mileage, String install)
 	{
 		this.username = username;
 		this.wo = wo;
 		this.address = address;
 		this.phone = phone;
 		this.mileage = mileage;
+		this.install = install;
 	}
 	
 
-	public Client (int id, String username, String wo, String address, String phone, String mileage)
+	public Client (int id, String username, String wo, String address, String phone, String mileage, String install)
 	{
 		this.id = id;
 		this.username = username;
@@ -29,6 +31,7 @@ public class Client implements Serializable
 		this.address = address;
 		this.phone = phone;
 		this.mileage = mileage;
+		this.install = install;
 	}
 
 	public int getID()
@@ -59,9 +62,17 @@ public class Client implements Serializable
 	{
 		return mileage;
 	}
+	public String getinstall()
+	{
+		return install;
+	}
 	public void setID(int id)
 	{
 		this.id = id;
+	}
+	public void setinstall(String install)
+	{
+		this.install = install;
 	}
 	public void setuserName(String username)
 	{
