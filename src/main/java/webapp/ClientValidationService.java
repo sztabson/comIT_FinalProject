@@ -40,7 +40,8 @@ public class ClientValidationService
             	String address = resultSet.getString("address");
             	String phone = resultSet.getString("phone");
             	String mileage = resultSet.getString("mileage");
-            	client = new Client(id1, username, wo1, address, phone, mileage);
+            	String install = resultSet.getString("install");
+            	client = new Client(id1, username, wo1, address, phone, mileage, install);
             }
         } catch (SQLException e) {
             e.printStackTrace();

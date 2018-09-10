@@ -32,7 +32,8 @@ public class ClientService {
             	String address = resultSet.getString("address");
             	String phone = resultSet.getString("phone");
             	String mileage = resultSet.getString("mileage");
-            	clients.add(new Client(id, username, wo, address, phone, mileage));
+            	String install = resultSet.getString("install");
+            	clients.add(new Client(id, username, wo, address, phone, mileage, install));
             }
 
         } catch (SQLException e) {
@@ -62,7 +63,8 @@ public class ClientService {
             	String address = resultSet.getString("address");
             	String phone = resultSet.getString("phone");
             	String mileage = resultSet.getString("mileage");
-            	clients.add(new Client( id, username1, wo, address, phone, mileage));
+            	String install = resultSet.getString("install");
+            	clients.add(new Client( id, username1, wo, address, phone, mileage, install));
             }
 
         } catch (SQLException e) {
@@ -91,7 +93,8 @@ public class ClientService {
             	String address = resultSet.getString("address");
             	String phone = resultSet.getString("phone");
             	String mileage = resultSet.getString("mileage");
-            	clients.add(new Client(username, wo, address, phone, mileage));
+            	String install = resultSet.getString("install");
+            	clients.add(new Client(username, wo, address, phone, mileage, install));
             }
 
         } catch (SQLException e) {
@@ -121,7 +124,8 @@ public class ClientService {
             	String address = resultSet.getString("address");
             	String phone = resultSet.getString("phone");
             	String mileage = resultSet.getString("mileage");
-            	client = new Client(id1, username, wo1, address, phone, mileage);
+            	String install = resultSet.getString("install");
+            	client = new Client(id1, username, wo1, address, phone, mileage, install);
             }
 
         } catch (SQLException e) {
@@ -153,7 +157,8 @@ public class ClientService {
             	String address = resultSet.getString("address");
             	String phone = resultSet.getString("phone");
             	String mileage = resultSet.getString("mileage");
-            	client = new Client(id, username, wo1, address, phone, mileage);
+            	String install = resultSet.getString("install");
+            	client = new Client(id, username, wo1, address, phone, mileage, install);
             }
 
         } catch (SQLException e) {
@@ -168,7 +173,7 @@ public class ClientService {
 	{
         Connection connection = Database.getConnection();
 
-        String sql = "INSERT INTO clients (username, wo, address, phone, mileage) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO clients (username, wo, address, phone, mileage, install) VALUES (?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -178,6 +183,7 @@ public class ClientService {
             statement.setString(3, client.getAddress());
             statement.setString(4, client.getPhone());
             statement.setString(5, client.getMileage());
+            statement.setString(6, client.getinstall());
             
             statement.execute();
 
@@ -190,7 +196,7 @@ public class ClientService {
 	{
         Connection connection = Database.getConnection();
 
-        String sql = "UPDATE clients SET username = ?, wo = ?, address = ?, phone = ?, mileage = ? WHERE id = ?";
+        String sql = "UPDATE clients SET username = ?, wo = ?, address = ?, phone = ?, mileage = ?, install = ? WHERE id = ?";
 
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -201,7 +207,8 @@ public class ClientService {
             statement.setString(3, client.getAddress());
             statement.setString(4, client.getPhone());
             statement.setString(5, client.getMileage());
-            statement.setInt(6, client.getID());
+            statement.setString(6, client.getinstall());
+            statement.setInt(7, client.getID());
             
             statement.execute();
 

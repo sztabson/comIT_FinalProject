@@ -27,8 +27,9 @@ public class EditClientServlet extends HttpServlet {
 		String address = request.getParameter("address");
 		String phone = request.getParameter("phone");
 		String mileage = request.getParameter("mileage");
+		String install = request.getParameter("install");
 		
-		Client client = new Client(id, username, wo, address, phone, mileage);
+		Client client = new Client(id, username, wo, address, phone, mileage, install);
 		
 		ClientService.updateClient(client);
 

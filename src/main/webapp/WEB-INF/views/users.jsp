@@ -50,7 +50,34 @@
 	<h2 class="mt-4">
 		Users
 	</h2>
-
+	<div class="container">
+    <div class="row">    
+    <form action="/search.do" method="post">
+        <div class="col-xs-8 col-xs-offset-2">
+		    <div class="input-group">
+                <div class="input-group-btn search-panel">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    	<span id="search_concept">Filter by</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#wo">Work Order</a></li>
+                      <li><a href="#phone">Phone</a></li>
+                      <li><a href="#address">Address</a></li>
+                      <li><a href="#all">Anything</a></li>
+                    </ul>
+                </div>
+                <input type="hidden" name="search_param" value="all" id="search_param">         
+                <input type="text" class="form-control" name="x" placeholder="Search term...">
+                <span class="input-group-btn">
+                <button type="submit" class="btn btn-primary">Search</button>
+                    <!-- <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button> -->
+                </span>
+            </div>
+        </div>
+        </form>
+	</div>
+</div>
+<br>
 <div class="container">
 	<div class="row">
 		<c:forEach items="${users}" var="user">
@@ -160,5 +187,24 @@
 	
 </div>
 </main>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./Signin/jquery-3.3.1.slim.min.js.pobrane" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="./Signin/popper.min.js.pobrane"></script>
+    <script src="./Signin/bootstrap.min.js.pobrane"></script>
+    	<script language="JavaScript">
+    	
+    $(document).ready(function(e){
+    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+		e.preventDefault();
+		var param = $(this).attr("href").replace("#","");
+		var concept = $(this).text();
+		$('.search-panel span#search_concept').text(concept);
+		$('.input-group #search_param').val(param);
+	});
+});
+    </script>
 </body>
 </html>
