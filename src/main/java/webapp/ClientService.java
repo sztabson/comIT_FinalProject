@@ -134,11 +134,40 @@ public class ClientService {
 
 		return client;
 	}	
-
-	
-	public Client getClientByWO(String wo)
+	public static List<Client> getClientByWO(String x)
 	{
-		Client client = null;
+		List<Client> clients = new ArrayList<Client>();
+        Connection connection = Database.getConnection();
+        
+
+        String sql = "SELECT * FROM clients WHERE wo = ? ORDER BY date";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, x);
+            ResultSet resultSet = statement.executeQuery();
+
+            while(resultSet.next()) {
+            	int id = resultSet.getInt("id");
+            	String username = resultSet.getString("username");
+            	String wo = resultSet.getString("wo");
+            	String address = resultSet.getString("address");
+            	String phone = resultSet.getString("phone");
+            	String mileage = resultSet.getString("mileage");
+            	String install = resultSet.getString("install");
+            	clients.add(new Client(id, username, wo, address, phone, mileage, install));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+		return clients;
+	}
+	
+	/*public static Client getClientByWO(String x)
+	{
+		Client clients = null;
         Connection connection = Database.getConnection();
 
         String sql = "SELECT * FROM clients WHERE wo = ?";
@@ -146,7 +175,7 @@ public class ClientService {
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
 
-            statement.setString(1, wo);
+            statement.setString(1, x);
             
             ResultSet resultSet = statement.executeQuery();
 
@@ -158,7 +187,39 @@ public class ClientService {
             	String phone = resultSet.getString("phone");
             	String mileage = resultSet.getString("mileage");
             	String install = resultSet.getString("install");
-            	client = new Client(id, username, wo1, address, phone, mileage, install);
+            	clients = new Client(id, username, wo1, address, phone, mileage, install);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+		return clients;
+	}*/
+	
+	public Client getClientByAddress(String address)
+	{
+		Client client = null;
+        Connection connection = Database.getConnection();
+
+        String sql = "SELECT * FROM clients WHERE address = ?";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            statement.setString(1, address);
+            
+            ResultSet resultSet = statement.executeQuery();
+
+            if(resultSet.next()) {
+            	int id = resultSet.getInt("id");
+            	String username = resultSet.getString("username");
+            	String wo = resultSet.getString("wo");
+            	String address1 = resultSet.getString("address");
+            	String phone = resultSet.getString("phone");
+            	String mileage = resultSet.getString("mileage");
+            	String install = resultSet.getString("install");
+            	client = new Client(id, username, wo, address1, phone, mileage, install);
             }
 
         } catch (SQLException e) {
@@ -168,6 +229,70 @@ public class ClientService {
 		return client;
 	}
 	
+	public Client getClientByPhone(String phone)
+	{
+		Client client = null;
+        Connection connection = Database.getConnection();
+
+        String sql = "SELECT * FROM clients WHERE phone = ?";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            statement.setString(1, phone);
+            
+            ResultSet resultSet = statement.executeQuery();
+
+            if(resultSet.next()) {
+            	int id = resultSet.getInt("id");
+            	String username = resultSet.getString("username");
+            	String wo = resultSet.getString("wo");
+            	String address = resultSet.getString("address");
+            	String phone1 = resultSet.getString("phone");
+            	String mileage = resultSet.getString("mileage");
+            	String install = resultSet.getString("install");
+            	client = new Client(id, username, wo, address, phone1, mileage, install);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+		return client;
+	}
+	public static Client getClientByAll(String x)
+	{
+		Client clients = null;
+        Connection connection = Database.getConnection();
+
+        String sql = "SELECT * FROM clients WHERE wo = ? or phone = ? or address = ?";
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            statement.setString(1, x);
+/*            statement.setString(2, x);
+            statement.setString(3, x);*/
+            
+            ResultSet resultSet = statement.executeQuery();
+
+            if(resultSet.next()) {
+            	int id = resultSet.getInt("id");
+            	String username = resultSet.getString("username");
+            	String wo = resultSet.getString("wo");
+            	String address = resultSet.getString("address");
+            	String phone = resultSet.getString("phone");
+            	String mileage = resultSet.getString("mileage");
+            	String install = resultSet.getString("install");
+            	clients = new Client(id, username, wo, address, phone, mileage, install);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+		return clients;
+	}
 	
 	public static void insertClient(Client client)
 	{

@@ -90,7 +90,6 @@
                       <li><a href="#wo">Work Order</a></li>
                       <li><a href="#phone">Phone</a></li>
                       <li><a href="#address">Address</a></li>
-                      <li><a href="#all">Anything</a></li>
                     </ul>
                 </div>
                 <input type="hidden" name="search_param" value="all" id="search_param">         
